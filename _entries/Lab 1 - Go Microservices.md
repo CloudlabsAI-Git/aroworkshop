@@ -153,7 +153,7 @@ The `rating-api` is a NodeJS application that connects to mongoDB to retrieve an
 
 To be able to setup CI/CD webhooks, you'll need to fork the application into your personal GitHub repository.
 
-<a class="github-button" href="https://github.com/MicrosoftDocs/mslearn-aks-workshop-ratings-api" data-icon="octicon-repo-forked" data-size="large" aria-label="Fork microsoft/rating-api on GitHub">Fork</a>
+<a class="github-button" href="https://github.com/MicrosoftDocs/mslearn-aks-workshop-ratings-api/fork" data-icon="octicon-repo-forked" data-size="large" aria-label="Fork MicrosoftDocs/mslearn-aks-workshop-ratings-api on GitHub">Fork</a>
 
 ### Use the OpenShift CLI to deploy the `rating-api`
 
@@ -250,7 +250,7 @@ The `rating-web` is a NodeJS application that connects to the `rating-api`. Belo
 
 To be able to setup CI/CD webhooks, you'll need to fork the application into your personal GitHub repository.
 
-<a class="github-button" href="https://github.com/MicrosoftDocs/mslearn-aks-workshop-ratings-web/fork" data-icon="octicon-repo-forked" data-size="large" aria-label="Fork microsoft/rating-web on GitHub">Fork</a>
+<a class="github-button" href="https://github.com/MicrosoftDocs/mslearn-aks-workshop-ratings-web/fork" data-icon="octicon-repo-forked" data-size="large" aria-label="Fork MicrosoftDocs/mslearn-aks-workshop-ratings-web on GitHub">Fork</a>
 
 ### Modify Dockerfile in your repository
 
@@ -274,14 +274,37 @@ wget https://raw.githubusercontent.com/sajitsasi/rating-web/master/src/component
 
 ![Clone and update files](../media/clone_and_update.png)
 
+3. Generate a Personal Access Token (Classic)
+
+   * In the upper-right corner of your GitHub page, click your profile photo, then click on **Settings**.
+     
+     ![GitHub Settings](../media/git-settings.png)
+     
+   * In the left sidebar, click on **Developer settings**.
+  
+   * In Developer Settings, under Personal access tokens, select **Tokens (classic)**(1), click on **Generate new token**(2) and then select **Generate new token (classic)**(3).
+  
+     ![GitHub PAT (Classic)](../media/git-pat-classic.png)
+
+   * In the **Note**(1) field, give your token a descriptive name, leave the default settings for **Expiration**(2) and under **Select scopes** select **repo**(3).
+  
+     ![GitHub PAT Generate](../media/git-pat-generate.png)
+
+   * Click on **Generate token**.
+  
+   * Once the token is generated, make sure you copy the token in a Notepad. You will use this token for the authentication process in the next step while running the **git push** command.
+
 4. Verify, stage, commit and push changes to your local repository
 
 ```sh
 git status
 git add .
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
 git commit -m "Modified Dockerfile and Footer.vue"
 git push
 ```
+> **Note**: Once you run the **git push** command, make sure you enter your **GitHub Username** and the **Personal Access Token as Password** during the authentication process.
 
 ![Push changes to repository](../media/git-push.png)
 
