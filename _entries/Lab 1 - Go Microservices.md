@@ -12,9 +12,9 @@ The application consists of 3 components:
 
 | Component                                          | Link                                                               |
 |----------------------------------------------------|--------------------------------------------------------------------|
-| A public facing API `rating-api`                   | [GitHub repo](https://github.com/microsoft/rating-api)             |
-| A public facing web frontend `rating-web`          | [GitHub repo](https://github.com/microsoft/rating-web)             |
-| A MongoDB with pre-loaded data                     | [Data](https://github.com/microsoft/rating-api/raw/master/data.tar.gz)   |
+| A public facing API `rating-api`                   | [GitHub repo](https://github.com/MicrosoftDocs/mslearn-aks-workshop-ratings-api) |
+| A public facing web frontend `rating-web`          | [GitHub repo](https://github.com/MicrosoftDocs/mslearn-aks-workshop-ratings-web) |
+| A MongoDB with pre-loaded data                     | [Data](https://github.com/microsoft/rating-api/raw/master/data.tar.gz) |
 
 Once you're done, you'll have an experience similar to the below.
 
@@ -145,7 +145,7 @@ You can also retrieve this from the web console. You'll need this hostname to co
 
 The `rating-api` is a NodeJS application that connects to mongoDB to retrieve and rate items. Below are some of the details that you'll need to deploy this.
 
-- `rating-api` on GitHub: <https://github.com/microsoft/rating-api>
+- `rating-api` on GitHub: <https://github.com/MicrosoftDocs/mslearn-aks-workshop-ratings-api>
 - The container exposes port 8080
 - MongoDB connection is configured using an environment variable called `MONGODB_URI`
 
@@ -153,14 +153,14 @@ The `rating-api` is a NodeJS application that connects to mongoDB to retrieve an
 
 To be able to setup CI/CD webhooks, you'll need to fork the application into your personal GitHub repository.
 
-<a class="github-button" href="https://github.com/microsoft/rating-api/fork" data-icon="octicon-repo-forked" data-size="large" aria-label="Fork microsoft/rating-api on GitHub">Fork</a>
+<a class="github-button" href="https://github.com/MicrosoftDocs/mslearn-aks-workshop-ratings-api" data-icon="octicon-repo-forked" data-size="large" aria-label="Fork microsoft/rating-api on GitHub">Fork</a>
 
 ### Use the OpenShift CLI to deploy the `rating-api`
 
 > **Note** You're going to be using [source-to-image (S2I)](#source-to-image-s2i) as a build strategy.
 
 ```sh
-oc new-app https://github.com/<your GitHub username>/rating-api --strategy=source
+oc new-app https://github.com/<your GitHub username>/mslearn-aks-workshop-ratings-api --strategy=source --name=rating-api
 ```
 
 ![Create rating-api using oc cli](../media/oc-newapp-ratingapi.png)
@@ -261,8 +261,8 @@ To be able to setup CI/CD webhooks, you'll need to fork the application into you
 1. Clone the Git repository locally and change to repo directory
 
 ```sh
-git clone https://github.com/user-name/rating-web.git
-cd rating-web
+git clone https://github.com/<your GitHub username>/mslearn-aks-workshop-ratings-web.git
+cd mslearn-aks-workshop-ratings-web
 ```
 
 2. Download updated Dockerfile and Footer.vue files
@@ -290,7 +290,7 @@ git push
 > **Note** You're going to be using [source-to-image (S2I)](#source-to-image-s2i) as a build strategy.
 
 ```sh
-oc new-app https://github.com/<your GitHub username>/rating-web --strategy=docker
+oc new-app https://github.com/<your GitHub username>/mslearn-aks-workshop-ratings-web --strategy=docker --name=rating-web
 ```
 
 The build will take between 5-10 minutes
