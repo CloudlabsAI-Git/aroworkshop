@@ -8,7 +8,7 @@
 - OSToy front-end container image: <https://quay.io/repository/ostoylab/ostoy-frontend?tab=tags>
 - OSToy microservice container image: <https://quay.io/repository/ostoylab/ostoy-microservice?tab=tags>
 - Deployment Definition YAMLs:
-  - [ostoy-fe-deployment.yaml](https://raw.githubusercontent.com/microsoft/aroworkshop/master/yaml/ostoy-fe-deployment.yaml)
+  - [ostoy-frontend-deployment.yaml](https://raw.githubusercontent.com/microsoft/aroworkshop/master/yaml/ostoy-frontend-deployment.yaml)
   - [ostoy-microservice-deployment.yaml](https://raw.githubusercontent.com/microsoft/aroworkshop/master/yaml/ostoy-microservice-deployment.yaml)
 
 > **Note** In order to simplify the deployment of the app (which you will do next) we have included all the objects needed in the above YAMLs as "all-in-one" YAMLs.  In reality though, an enterprise would most likely want to have a different yaml file for each Kubernetes object.
@@ -119,7 +119,7 @@ service/ostoy-microservice-svc created
 
 This deployment contains the node.js frontend for our application along with a few other Kubernetes objects.
 
- If you open the *ostoy-fe-deployment.yaml* you will see we are defining:
+ If you open the *ostoy-frontend-deployment.yaml* you will see we are defining:
 
 - Persistent Volume Claim
 - Deployment Object
@@ -130,12 +130,12 @@ This deployment contains the node.js frontend for our application along with a f
 
 Deploy the frontend along with creating all objects mentioned above by entering:
 
-`oc apply -f https://raw.githubusercontent.com/microsoft/aroworkshop/master/yaml/ostoy-fe-deployment.yaml`
+`oc apply -f https://raw.githubusercontent.com/microsoft/aroworkshop/master/yaml/ostoy-frontend-deployment.yaml`
 
 You should see all objects created successfully
 
 ```
-$ oc apply -f https://raw.githubusercontent.com/microsoft/aroworkshop/master/yaml/ostoy-fe-deployment.yaml
+$ oc apply -f https://raw.githubusercontent.com/microsoft/aroworkshop/master/yaml/ostoy-frontend-deployment.yaml
 persistentvolumeclaim/ostoy-pvc created
 deployment.apps/ostoy-frontend created
 service/ostoy-frontend-svc created
