@@ -397,7 +397,7 @@ Now, whenever you push a change to your GitHub repository, a new build will auto
 
 ### Make a change to the website app and see the rolling update
 
-Go to the `https://github.com/<your GitHub username>/rating-web/blob/master/src/App.vue` file in your repository on GitHub.
+Go to the `https://github.com/<your GitHub username>/mslearn-aks-workshop-ratings-web/blob/master/src/App.vue` file in your repository on GitHub. 
 
 Edit the file, and change the `background-color: #999;` line to be `background-color: #0071c5`.
 
